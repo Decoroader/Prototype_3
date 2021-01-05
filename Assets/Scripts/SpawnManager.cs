@@ -7,8 +7,11 @@ public class SpawnManager : MonoBehaviour
     private float startDelay = 2;
     private float repeatRate = 2;
 
+    private PlayerController playerController;
+
     void Start()
     {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         InvokeRepeating("SpawnObstacle", startDelay, repeatRate);
     }
 
@@ -19,7 +22,11 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnObstacle()
 	{
-        GameObject currentObstacle = Instantiate(obstaclePrefab, spawnPos, Quaternion.identity);
-        Destroy(currentObstacle, 1.9f);
+        GameObject currentObstacle;
+        if (playerController.gameOver == false)
+        {
+            currentObstacle = Instantiate(obstaclePrefab, spawnPos, Quaternion.identity);
+            Destroy(currentObstacle, 1.9f);
+        }
     }
 }
