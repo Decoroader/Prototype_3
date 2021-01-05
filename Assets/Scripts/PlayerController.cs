@@ -33,10 +33,11 @@ public class PlayerController : MonoBehaviour
     }
 	private void OnCollisionEnter(Collision collision)
 	{
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") && !gameOver)
         {
             isOnGround = true;
-            dirtParticle.Play();
+            dirtParticle.Play(); // sometimes it call after Obstacle-collision, so this incorrect code
+            // for fix it added check flag gameOver
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
