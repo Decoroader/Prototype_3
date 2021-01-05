@@ -15,18 +15,15 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnObstacle", startDelay, repeatRate);
     }
 
-    void Update()
-    {
-        
-    }
-
     void SpawnObstacle()
 	{
-        GameObject currentObstacle;
+        //GameObject currentObstacle;
         if (playerController.gameOver == false)
         {
-            currentObstacle = Instantiate(obstaclePrefab, spawnPos, Quaternion.identity);
-            Destroy(currentObstacle, 1.9f);
+            Instantiate(obstaclePrefab, spawnPos, Quaternion.identity);
+            //currentObstacle = Instantiate(obstaclePrefab, spawnPos, Quaternion.identity);
+            //Destroy(currentObstacle, repeatRate - repeatRate * 0.05f); 
+            // this is my way of the removing the obstacles by time
         }
     }
 }
