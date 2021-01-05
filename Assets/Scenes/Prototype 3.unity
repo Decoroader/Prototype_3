@@ -403,6 +403,7 @@ MonoBehaviour:
   jumpForce: 1999
   gravityModifier: 9.8
   isOnGround: 0
+  gameOver: 0
 --- !u!1 &835818919
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +584,7 @@ GameObject:
   - component: {fileID: 2014335012}
   m_Layer: 9
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

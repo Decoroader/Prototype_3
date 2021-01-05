@@ -9,9 +9,11 @@ public class PlayerController : MonoBehaviour
 
 
     private Rigidbody playerRb;
+    private Animator playerAnimator;
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerAnimator = GetComponent<Animator>();
         //playerRb.AddForce(Vector3.up * 1000);
         Physics.gravity *= gravityModifier;
     }
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
+            playerAnimator.SetTrigger("Jump_trig");
         }
 
     }
@@ -33,6 +36,8 @@ public class PlayerController : MonoBehaviour
 		{
             gameOver = true;
             Debug.Log("Game over!");
+            playerAnimator.SetBool("Death_b", true);
+            playerAnimator.SetInteger("DeathType_int", 1);
 		}
     }
 }
