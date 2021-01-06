@@ -37,9 +37,12 @@ public class PlayerControllerX : MonoBehaviour
         // While space is pressed and player is low enough, float up
         if (Input.GetKey(KeyCode.Space) && !gameOver && (transform.position.y < (ballHight - 1.5f)))
             playerRb.AddForce(Vector3.up * floatForce, ForceMode.Impulse);
-        
+
         if (transform.position.y > ballHight)
+        {
             transform.position = new Vector3(transform.position.x, ballHight, transform.position.z);
+            playerRb.velocity = Vector3.zero;
+        }
     }
 
     private void OnCollisionEnter(Collision other)
