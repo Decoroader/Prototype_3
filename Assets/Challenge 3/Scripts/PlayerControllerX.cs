@@ -56,7 +56,8 @@ public class PlayerControllerX : MonoBehaviour
 
             gameOver = true;
             Debug.Log("Game Over!");
-            transform.position = Vector3.up * -5;
+            playerRb.velocity = Vector3.zero;
+            transform.position = - Vector3.up * 5;
             Destroy(gameObject, 1.95f);
             Destroy(other.gameObject);
         } 
