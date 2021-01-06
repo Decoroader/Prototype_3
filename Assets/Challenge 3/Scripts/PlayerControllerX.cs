@@ -50,10 +50,14 @@ public class PlayerControllerX : MonoBehaviour
         // if player collides with bomb, explode and set gameOver to true
         if (other.gameObject.CompareTag("Bomb"))
         {
+            explosionParticle.transform.parent = null;
             explosionParticle.Play();
             playerAudio.PlayOneShot(explodeSound, 1.0f);
+
             gameOver = true;
             Debug.Log("Game Over!");
+            transform.position = Vector3.up * -5;
+            Destroy(gameObject, 1.95f);
             Destroy(other.gameObject);
         } 
 
