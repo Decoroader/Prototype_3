@@ -8,6 +8,7 @@ public class PlayerControllerX : MonoBehaviour
 
     public float floatForce;
     private float gravityModifier = .75f;
+    private float ballHight = 15;
     private Rigidbody playerRb;
 
     public ParticleSystem explosionParticle;
@@ -34,10 +35,11 @@ public class PlayerControllerX : MonoBehaviour
     void Update()
     {
         // While space is pressed and player is low enough, float up
-        if (Input.GetKey(KeyCode.Space) && !gameOver)
-        {
+        if (Input.GetKey(KeyCode.Space) && !gameOver && (transform.position.y < (ballHight - 1.5f)))
             playerRb.AddForce(Vector3.up * floatForce, ForceMode.Impulse);
-        }
+        
+        if (transform.position.y > ballHight)
+            transform.position = new Vector3(transform.position.x, ballHight, transform.position.z);
     }
 
     private void OnCollisionEnter(Collision other)
