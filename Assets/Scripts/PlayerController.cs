@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
             dirtParticle.Stop();
             playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+            Application.Quit();
 
     }
 	private void OnCollisionEnter(Collision collision)

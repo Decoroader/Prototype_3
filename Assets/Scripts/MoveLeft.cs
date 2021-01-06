@@ -2,7 +2,7 @@
 
 public class MoveLeft : MonoBehaviour
 {
-    private float speed = 30;
+    private float speed = 23;
     private PlayerController playerController;
     private float leftBound = -11;
 
